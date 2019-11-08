@@ -10,7 +10,7 @@ app.use(express.static('public'))
 app.use(bodyParser.json());
 let port = 8000
 
-mongoose.connect('mongodb://localhost:27017/test2',{
+mongoose.connect('mongodb://localhost:27017/basdat_a2',{
     useUnifiedTopology : true, useNewUrlParser : true, 
     useCreateIndex: true
 });

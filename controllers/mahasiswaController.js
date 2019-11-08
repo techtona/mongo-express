@@ -30,3 +30,43 @@ exports.store = function(req,res){
         })
     })
 }
+
+exports.update =  function(req,res){
+    Mhs.findById(req.params.id, function(err, mhss){
+        if(err)
+            res.send(err);
+        
+        mhss.nim = req.body.nim ? req.body.nim : mhss.nim;
+        mhss.nama = req.body.nama;
+        mhss.alamat = req.body.alamat;
+        mhss.save(function(err){
+            if(err)
+                res.send(err)
+            
+            res.json({
+                message : 'berhasil menambah data',
+                data : mhss
+            })
+        })
+    })
+}
+
+exports.updateByNim =  function(req,res){
+    Mhs.findOne({nim : req.params.nim}, function(err, mhss){
+        if(err)
+            res.send(err);
+        
+        mhss.nim = req.body.nim ? req.body.nim : mhss.nim;
+        mhss.nama = req.body.nama;
+        mhss.alamat = req.body.alamat;
+        mhss.save(function(err){
+            if(err)
+                res.send(err)
+            
+            res.json({
+                message : 'berhasil mengubah data mahasiswa',
+                data : mhss
+            })
+        })
+    })
+}
