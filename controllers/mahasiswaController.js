@@ -70,3 +70,16 @@ exports.updateByNim =  function(req,res){
         })
     })
 }
+
+exports.deleteByNim = function (req, res) {
+    Mhs.remove({
+        nim : req.params.nim
+    }, function (err, mhss) {
+        if (err)
+            res.send(err);
+        res.json({
+            status: "success",
+            message: 'siswa deleted'
+        });
+    });
+};
