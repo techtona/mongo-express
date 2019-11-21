@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start" : "nodemon start"
+    "start": "nodemon start"
   },
   "dependencies": {
     "body-parser": "^1.19.0",
@@ -14,7 +14,8 @@
     "mongoose": "^5.7.7",
     "mongoose-unique-validator": "^2.0.3",
     "pm2": "^4.1.2",
-    "redis": "^2.8.0"
+    "redis": "^2.8.0",
+    "redis-server": "^1.2.2"
   },
   "devDependencies": {
     "nodemon": "^1.19.4"

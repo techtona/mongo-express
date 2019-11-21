@@ -2,6 +2,11 @@ let express = require('express');
 let bodyParser = require('body-parser');
 let mongoose = require('mongoose');
 
+var redis = require("redis"),client = redis.createClient();
+client.on("error", function (err) {
+    console.log("Error " + err);
+});
+
 let app = express();
 app.use(bodyParser.urlencoded({
     extended: true
@@ -10,7 +15,9 @@ app.use(express.static('public'))
 app.use(bodyParser.json());
 let port = 8000
 
-mongoose.connect('mongodb://localhost:27017/basdat_a2',{
+
+
+mongoose.connect('mongodb+srv://test:test@freecluster-wjdyt.mongodb.net/test2',{
     useUnifiedTopology : true, useNewUrlParser : true, 
     useCreateIndex: true
 });
