@@ -10,7 +10,7 @@ app.use(express.static('public'))
 app.use(bodyParser.json());
 let port = 8000
 
-mongoose.connect('mongodb+srv://test:test@freecluster-wjdyt.mongodb.net/test',{
+mongoose.connect('mongodb+srv://test:test@freecluster-wjdyt.mongodb.net/test2',{
     useUnifiedTopology : true, useNewUrlParser : true, 
     useCreateIndex: true
 });
