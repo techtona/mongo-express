@@ -2,11 +2,6 @@ let express = require('express');
 let bodyParser = require('body-parser');
 let mongoose = require('mongoose');
 
-var redis = require("redis"),client = redis.createClient();
-client.on("error", function (err) {
-    console.log("Error " + err);
-});
-
 let app = express();
 app.use(bodyParser.urlencoded({
     extended: true
