@@ -7,6 +7,8 @@ router.route('/mahasiswa')
     .get(mhsController.index)
     .post(mhsController.store)
 
+router.route('/mahasiswaRedis').get(mhsController.indexRedis);
+
 router.route('/mahasiswa/:id').put(mhsController.update);
 
 router.route('/mahasiswa_update_by_nim/:nim')
