@@ -1,3 +1,5 @@
+let redis = require('../redisClient');
+
 Mhs = require('../models/mahasiswaModel');
 
 exports.index = function(req, res){
@@ -13,6 +15,28 @@ exports.index = function(req, res){
             data : mhs
         })
     })
+}
+
+exports.indexDenganRedis = function(req, res){
+    // apakah ada di redis?
+    redis.get('all-mahasiswa2', function(err, reply){
+        if(err)
+            res.json(null)
+        // yes
+        else if(reply)
+            res.json(JSON.parse(reply));
+        // no
+        else{
+            Mhs.get(function(err, mhs){
+                if(err){
+                    res.json(null)
+                }else{
+                    redis.set('all-mahasiswa2',JSON.stringify({from : 'redis-server',mhs}))
+                    res.json(mhs);
+                }
+            })
+        }
+    });
 }
 
 exports.store = function(req,res){

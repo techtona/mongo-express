@@ -7,6 +7,9 @@ router.route('/mahasiswa')
     .get(mhsController.index)
     .post(mhsController.store);
 
+router.route('/mahasiswaDenganRedis')
+    .get(mhsController.indexDenganRedis);
+
 // delete and update
 router.route('/mahasiswa/:id')
     .get(mhsController.view)
